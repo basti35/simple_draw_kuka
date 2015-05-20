@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sleep 10
+rosrun simple_draw_kuka circle_drawer

@@ -1,0 +1,25 @@
+<launch>
+
+  <arg name="controller" default="OneTaskInverseKinematics" />
+  <arg name="stopped_controllers" default="ComputedTorqueControl" />
+  <arg name="use_lwr_sim" default="false"/>
+  <arg name="gui" default="false" />
+  <arg name="robot_name" default="lwr_on_box"/>
+  <arg name="use_rviz" default="false"/>
+  <arg name="use_joint_state_publisher" default="true"/>
+  <arg name="port" default="49938"/>
+  <arg name="ip" default="192.168.0.118"/>
+
+  <include file="$(find lwr_launch)/launch/lwr.launch">
+    <arg name="controller" value="$(arg controller)"/>
+    <arg name="stopped_controllers" value="$(arg stopped_controllers)"/>
+    <arg name="use_lwr_sim" value="$(arg use_lwr_sim)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="robot_name" value="$(arg robot_name)"/>
+    <arg name="use_rviz" value="$(arg use_rviz)"/>
+    <arg name="use_joint_state_publisher" value="$(arg use_joint_state_publisher)"/>
+    <arg name="port" value="$(arg port)"/>
+    <arg name="ip" value="$(arg ip)"/>
+  </include>
+  <node name="simple_drawer" pkg="simple_draw_kuka" type="simple_drawer" output="screen"/>
+</launch>
